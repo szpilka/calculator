@@ -5,22 +5,28 @@ public class Main {
 		System.out.println("Calculator");
 		String input = "- 1 2";
 		String[] splittedInput = input.split(" ");
-		
-		String operation = splittedInput[0];
+
+		String operationSymbol = splittedInput[0];
 		double x = Double.parseDouble(splittedInput[1]);
 		double y = Double.parseDouble(splittedInput[2]);
-		
-		switch(operation) {
+
+		Operation operation;
+
+		switch (operationSymbol) {
 		case "+":
 			System.out.println("Dodawanie");
-			System.out.println(x+y);
+			operation = new Adding();
 			break;
 		case "-":
 			System.out.println("Odejmowanie");
-			System.out.println(x-y);
+			operation = new Substracting();
 			break;
+		default:
+			throw new IllegalArgumentException("Unrecognized operation symbol: " + operationSymbol);
 		}
-		
+
+		System.out.println(operation.execute(x, y));
+
 	}
 
 }
