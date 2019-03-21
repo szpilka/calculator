@@ -3,7 +3,7 @@ package calculator;
 public class Main {
 	public static void main(String[] args) {
 		System.out.println("Calculator");
-		String input = "- 1 2";
+		String input = "+ 1 2";
 		String[] splittedInput = input.split(" ");
 
 		String operationSymbol = splittedInput[0];
